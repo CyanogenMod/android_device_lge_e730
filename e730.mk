@@ -53,6 +53,7 @@ $(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.camera=victor \
     ro.com.google.clientidbase=android-lge \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
