@@ -14,7 +14,7 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),victor)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),victor)
 
 include $(CLEAR_VARS)
 
@@ -32,4 +32,4 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif # TARGET_DEVICE
+endif # TARGET_BOOTLOADER_BOARD_NAME

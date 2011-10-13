@@ -1,4 +1,4 @@
-ifeq ($(TARGET_DEVICE),victor)
+ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),victor)
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
@@ -65,4 +65,4 @@ LOCAL_MODULE_PATH := $(TARGET_RECOVERY_ROOT_OUT)/system/lib
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
-endif # TARGET_DEVICE
+endif # TARGET_BOOTLOADER_BOARD_NAME
