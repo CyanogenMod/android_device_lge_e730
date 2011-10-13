@@ -163,6 +163,6 @@ $(call inherit-product, device/lge/e730/media_a1026.mk)
 $(call inherit-product, build/target/product/full_base.mk)
 
 PRODUCT_NAME := lge_e730
-PRODUCT_DEVICE := victor
+PRODUCT_DEVICE := e730
 PRODUCT_MODEL := E730
 PRODUCT_MANUFACTURER := LGE
