@@ -156,8 +156,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    device/lge/e730/prebuilt/wireless.ko:system/lib/modules/librasdioif.ko \
-    device/lge/e730/prebuilt/wireless.ko:system/lib/modules/scsi_wait_scan.ko \
     device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko
 
 $(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
