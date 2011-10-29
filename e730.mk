@@ -43,9 +43,6 @@ PRODUCT_COPY_FILES += \
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# use high-density artwork where available
-PRODUCT_LOCALES += hdpi
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 ## (2) Also get non-open-source GSM-specific aspects if available
@@ -158,12 +155,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko
 
-$(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
+$(call inherit-product, build/target/product/full_base.mk)
 
 # media profiles and capabilities spec
 $(call inherit-product, device/lge/e730/media_a1026.mk)
 
-$(call inherit-product, build/target/product/full_base.mk)
+$(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
 
 PRODUCT_NAME := lge_e730
 PRODUCT_DEVICE := e730
