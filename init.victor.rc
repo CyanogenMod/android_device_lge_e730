@@ -184,7 +184,3 @@ service port-bridge /system/bin/port-bridge /dev/atcmd-tty1 /dev/ttyGS0
     group system inet
 
 service netmgrd /system/bin/netmgrd
-
-# enable adbd in chargerlogo mode
-service adbd /sbin/adbd
-    disabled
