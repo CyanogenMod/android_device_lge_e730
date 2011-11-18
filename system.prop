@@ -3,6 +3,18 @@
 #
 ro.sf.lcd_density=240
 
+# Enable egl profiler
+debug.egl.profiler=1
+
+# Render UI with GPU - Leo set to 0 for no glitches
+debug.sf.hw=1
+
+# ABL
+htc.abl.enable=0
+
+#0 - mdp composition, 1 - gpu composition
+ro.sf.hw=1
+
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 
@@ -28,7 +40,7 @@ ro.lge.vt.enable=1
 
 wifi.features=p2p
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=20
+wifi.supplicant_scan_interval=30
 
 mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
 
