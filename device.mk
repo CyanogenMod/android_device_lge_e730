@@ -85,6 +85,10 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     com.android.future.usb.accessory
 
+# Idc
+PRODUCT_COPY_FILES += \
+   device/lge/e730/idc/qt602240_ts.idc:system/usr/idc
+
 # Keychars
 PRODUCT_COPY_FILES += \
     device/lge/e730/keychars/ats_input.kcm.bin:system/usr/keychars/ats_input.kcm.bin \
