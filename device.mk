@@ -49,7 +49,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 ## (2) Also get non-open-source GSM-specific aspects if available
-$(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -165,7 +165,7 @@ $(call inherit-product, device/lge/e730/media_a1026.mk)
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
 
 PRODUCT_NAME := lge_e730
 PRODUCT_DEVICE := e730
