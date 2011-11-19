@@ -87,7 +87,7 @@ PRODUCT_PACKAGES += \
 
 # Idc
 PRODUCT_COPY_FILES += \
-   device/lge/e730/idc/qt602240_ts.idc:system/usr/idc
+   device/lge/e730/idc/qt602240_ts.idc:system/usr/idc/qt602240_ts.idc
 
 # Keychars
 PRODUCT_COPY_FILES += \
