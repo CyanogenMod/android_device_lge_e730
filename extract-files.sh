@@ -45,8 +45,6 @@ adb pull /system/lib/libabl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libabloem.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libmm-abl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/liboverlay.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/hw/gralloc.msm7x30.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/hw/hwcomposer.msm7x30.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/hw/sensors.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/netmgrd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/port-bridge ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
@@ -137,8 +135,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libabloem.so:system/lib/libabloem.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libmm-abl.so:system/lib/libmm-abl.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/liboverlay.so:system/lib/liboverlay.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/gralloc.msm7x30.so:system/lib/hw/gralloc.msm7x30.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/hwcomposer.msm7x30.so:system/lib/hw/hwcomposer.msm7x30.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sensors.default.so:system/lib/hw/sensors.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/netmgrd:system/bin/netmgrd \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/port-bridge:system/bin/port-bridge \\
