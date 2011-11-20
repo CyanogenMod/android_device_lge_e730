@@ -74,6 +74,9 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
 PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    libaudioutils \
+    audio.primary.victor \
     lights.victor \
     sensors.default \
     gps.victor \
