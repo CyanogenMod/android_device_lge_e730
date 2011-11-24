@@ -25,6 +25,7 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 PRODUCT_COPY_FILES += \
     device/lge/e730/init.victor.rc:root/init.victor.rc \
+    device/lge/e730/init.victor.usb.rc:root/init.victor.usb.rc \
     device/lge/e730/ueventd.rc:root/ueventd.rc
 
 PRODUCT_COPY_FILES += \
@@ -65,6 +66,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Override /proc/sys/vm/dirty_ratio on UMS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
+
+# Set default USB interface
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
 
 DEVICE_PACKAGE_OVERLAYS += device/lge/e730/overlay
 
