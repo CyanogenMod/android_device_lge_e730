@@ -86,7 +86,7 @@ PRODUCT_PACKAGES += \
     sensors.default \
     gps.victor \
     librs_jni \
-    gralloc.msm7x30 \
+    gralloc.victor \
     overlay.default \
     libOmxCore \
     libOmxVenc \
