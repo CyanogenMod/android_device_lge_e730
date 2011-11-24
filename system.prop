@@ -18,6 +18,7 @@ ro.sf.hw=1
 # Modify MMS APN retry timer from 5s to 2s.
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 
+ro.telephony.ril.v3=1
 ro.telephony.ril_class=lgeqcom
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
