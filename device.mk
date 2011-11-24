@@ -42,7 +42,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
+    frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -85,7 +87,6 @@ PRODUCT_PACKAGES += \
     lights.victor \
     sensors.default \
     gps.victor \
-    librs_jni \
     gralloc.victor \
     overlay.default \
     libOmxCore \
@@ -93,9 +94,29 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     com.android.future.usb.accessory
 
-# Idc
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+# for bugmailer
+ifneq ($(TARGET_BUILD_VARIANT),user)
+    PRODUCT_PACKAGES += send_bug
+    PRODUCT_COPY_FILES += \
+        system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
+        system/extras/bugmailer/send_bug:system/bin/send_bug
+endif
+
+# Input device calibration files
 PRODUCT_COPY_FILES += \
-   device/lge/e730/idc/qt602240_ts.idc:system/usr/idc/qt602240_ts.idc
+    device/lge/e730/idc/qt602240_ts.idc:system/usr/idc/qt602240_ts.idc
 
 # Keychars
 PRODUCT_COPY_FILES += \
@@ -129,6 +150,7 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
     device/lge/e730/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/lge/e730/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+
 
 # The splashscreen and Offmode charging
 PRODUCT_COPY_FILES += \
@@ -174,11 +196,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko
 
-$(call inherit-product, build/target/product/full_base.mk)
-
-# media profiles and capabilities spec
-$(call inherit-product, device/lge/e730/media_a1026.mk)
-
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
@@ -186,8 +203,3 @@ $(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
 #BOARD_WLAN_DEVICE_REV := bcm4330_b1
 #WIFI_BAND             := 802_11_ABG
 #$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
-
-PRODUCT_NAME := lge_e730
-PRODUCT_DEVICE := e730
-PRODUCT_MODEL := E730
-PRODUCT_MANUFACTURER := LGE

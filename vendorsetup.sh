@@ -20,5 +20,4 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo lge_e730-userdebug
-add_lunch_combo lge_e730-eng
+add_lunch_combo full_e730-userdebug
