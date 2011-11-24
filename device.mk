@@ -116,10 +116,10 @@ PRODUCT_COPY_FILES += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    device/lge/e730/firmware/wl/nvram.txt:system/etc/wl/nvram.txt \
-    device/lge/e730/firmware/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
-    device/lge/e730/firmware/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
-    device/lge/e730/firmware/BCM4330B1_002.001.003.0243.0305.hcd:system/etc/firmware/BCM4330B1_002.001.003.0243.0305.hcd \
+    device/lge/e730/firmware/nvram.txt:system/vendor/firmware/nvram.txt \
+    device/lge/e730/firmware/rtecdc-apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
+    device/lge/e730/firmware/rtecdc.bin:system/vendor/firmware/fw_bcmdhd.bin \
+    device/lge/e730/firmware/BCM4330B1_002.001.003.0243.0305.hcd:system/vendor/firmware/bcm4330.hcd \
     device/lge/e730/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
     device/lge/e730/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
     device/lge/e730/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
@@ -147,6 +147,10 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/misc/chargerimages/battery_wait_ani_01.rle:/root/chargerimages/battery_wait_ani_01.rle \
     device/lge/e730/misc/chargerimages/battery_wait_ani_02.rle:/root/chargerimages/battery_wait_ani_02.rle \
     device/lge/e730/misc/chargerimages/black_bg.rle:/root/chargerimages/black_bg.rle
+
+# media config xml file
+PRODUCT_COPY_FILES += \
+    device/lge/e730/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
     device/lge/e730/vold.fstab:system/etc/vold.fstab
@@ -178,6 +182,10 @@ $(call inherit-product, device/lge/e730/media_a1026.mk)
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
+
+#BOARD_WLAN_DEVICE_REV := bcm4330_b1
+#WIFI_BAND             := 802_11_ABG
+#$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 
 PRODUCT_NAME := lge_e730
 PRODUCT_DEVICE := e730

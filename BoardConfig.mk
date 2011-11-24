@@ -51,12 +51,11 @@ TARGET_BOOTLOADER_BOARD_NAME := victor
 WPA_SUPPLICANT_VERSION          := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER     := WEXT
 BOARD_WLAN_DEVICE               := bcm4330
-WIFI_DRIVER_FW_STA_PATH         := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH          := "/system/etc/wl/rtecdc-apsta.bin"
+#WIFI_DRIVER_FW_STA_PATH         := "/vendor/firmware/fw_bcmdhd.bin"
+#WIFI_DRIVER_FW_AP_PATH          := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_MODULE_NAME         := "wireless"
 WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG          := "firmware_path=/etc/wl/rtecdc.bin nvram_path=/etc/wl/nvram.txt config_path=/data/misc/wifi/config"
-WIFI_DRIVER_HAS_LGE_SOFTAP      := true
+WIFI_DRIVER_MODULE_ARG          := "firmware_path=/vendor/firmware/fw_bcmdhd.bin nvram_path=/vendor/firmware/nvram.txt config_path=/data/misc/wifi/config iface_name=wlan"
 
 #BOARD_USES_HGL := true
 #BOARD_USES_OVERLAY := true
