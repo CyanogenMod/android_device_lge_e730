@@ -42,9 +42,9 @@ on fs
     chmod 0664 /sys/module/pm/parameters/idle_sleep_mode
 
     # for disabling IPv6 over mobile network.
-    write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
-    write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
-    write /proc/sys/net/ipv6/conf/rmnet2/disable_ipv6 1
+    #write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
+    #write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
+    #write /proc/sys/net/ipv6/conf/rmnet2/disable_ipv6 1
 
     # Disable cursor blink of fb console
     write /sys/devices/virtual/graphics/fbcon/cursor_blink 0
@@ -123,72 +123,97 @@ on fs
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 75000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
 
-service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
-    -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
-#   we will start as root and wpa_supplicant will switch to user wifi
-#   after setting up the capabilities required for WEXT
-#   user wifi
-#   group wifi inet keystore
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
+    class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+    class main
     disabled
     oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_p2p /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_bnep0 /system/bin/dhcpcd -n
+    class main
     disabled
     oneshot
 
 # compass/accelerometer daemon
 service akmd /system/bin/akmd
+    class main
     user compass
     group compass misc input
 
-# bugreport is triggered by the KEY_VOLUMEUP and BTN_MOUSE keycodes
-service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
+# bugreport is triggered by holding down volume down, volume up and power
+service bugreport /system/bin/bugmailer.sh -v
+    class main
     disabled
     oneshot
-    keycodes 114 115
+    keycodes 114 115 116
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
-    --baudrate 3000000 --patchram /etc/firmware/BCM4330B1_002.001.003.0243.0305.hcd /dev/ttyHS0
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes \
+    --baudrate 3000000 --patchram /system/vendor/firmware/bcm4330.hcd /dev/ttyHS0
+    class main
     user bluetooth
     group bluetooth net_bt_admin
     disabled
 
-service udhcpd /system/bin/udhcpd
-    disabled
-    oneshot
-
 service lgdrm /system/bin/lgdrmserver
+    class main
     user system 
     group audio system sdcard_rw qcom_oncrpc radio
 
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p13 /dev/block/mmcblk0p14 /dev/block/mmcblk0p19
+    class main
     user root
 
 service cnd /system/bin/cnd
+    class main
     socket cnd stream 660 root radio
     socket cne stream 660 root radio
 
 service qmuxd /system/bin/qmuxd 
+    class main
     user radio
     group system radio inet
 
 service ami304d /system/bin/ami304d
+    class main
     user system
     group system
 
 service atd /system/bin/atd
+    class main
     socket atd stream 0660 system inet
     user system
     group input inet radio
 
 service port-bridge /system/bin/port-bridge /dev/atcmd-tty1 /dev/ttyGS0
+    class main
     socket port_bridge stream 660 root radio
     user system
     group system inet
 
 service netmgrd /system/bin/netmgrd
+    class main
