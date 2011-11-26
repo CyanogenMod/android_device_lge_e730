@@ -38,6 +38,6 @@ $(call inherit-product, device/lge/e730/device.mk)
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_e730
 PRODUCT_DEVICE := e730
-PRODUCT_BRAND := Android
+PRODUCT_BRAND := LGE
 PRODUCT_MANUFACTURER := LGE
-PRODUCT_MODEL := Full AOSP on Victor
+PRODUCT_MODEL := Optimus Sol

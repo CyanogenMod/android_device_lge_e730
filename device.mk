@@ -57,7 +57,6 @@ $(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.camera=victor \
-    ro.com.google.clientidbase=android-lge \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     ro.com.google.gmsversion=2.3_r6 \
@@ -82,17 +81,17 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    libaudioutils \
     audio.primary.victor \
-    lights.victor \
-    sensors.default \
+    com.android.future.usb.accessory \
     gps.victor \
     gralloc.victor \
-    overlay.default \
+    libaudioutils \
     libOmxCore \
-    libOmxVenc \
     libOmxVdec \
-    com.android.future.usb.accessory
+    libOmxVenc \
+    lights.victor \
+    overlay.default \
+    sensors.default
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
