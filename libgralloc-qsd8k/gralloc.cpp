@@ -23,7 +23,7 @@
 #include <sys/ioctl.h>
 #include <cutils/properties.h>
 
-#include "android_pmem.h"
+#include <linux/android_pmem.h>
 
 #include "allocator.h"
 #include "gr.h"

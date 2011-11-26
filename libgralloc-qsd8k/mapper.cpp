@@ -25,16 +25,16 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
-#include "ashmem.h"
+#include <linux/ashmem.h>
 
 #include <cutils/log.h>
 #include <cutils/atomic.h>
-#include "ashmem.h"
+#include <cutils/ashmem.h>
 
 #include <hardware/hardware.h>
-#include "gralloc.h"
+#include <hardware/gralloc.h>
 
-#include "android_pmem.h"
+#include <linux/android_pmem.h>
 
 #include "gralloc_priv.h"
 #include "gr.h"

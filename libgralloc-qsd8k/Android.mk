@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifeq ($(ARGET_BOOTLOADER_BOARD_NAME),vivo)
 LOCAL_PATH := $(call my-dir)
 
 # HAL module implemenation, not prelinked and stored in
@@ -28,7 +29,7 @@ LOCAL_SRC_FILES := 	\
 	gralloc.cpp		\
 	mapper.cpp		\
 	pmemalloc.cpp
-	
+
 LOCAL_MODULE := gralloc.$(TARGET_BOOTLOADER_BOARD_NAME)
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS:= -DLOG_TAG=\"$(TARGET_BOOTLOADER_BOARD_NAME).gralloc\" -DHOST
@@ -51,3 +52,4 @@ ifeq ($(TARGET_GRALLOC_USES_ASHMEM),true)
 LOCAL_CFLAGS += -DUSE_ASHMEM
 endif
 include $(BUILD_SHARED_LIBRARY)
+endif

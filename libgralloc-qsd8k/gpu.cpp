@@ -22,7 +22,7 @@
 #include <sys/mman.h>
 
 #ifdef HOST
-#include "ashmem.h"
+#include <linux/ashmem.h>
 #endif
 
 #include "gr.h"

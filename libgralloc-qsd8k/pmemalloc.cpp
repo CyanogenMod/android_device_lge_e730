@@ -26,7 +26,7 @@
 #include <sys/mman.h>
 
 #include <cutils/log.h>
-#include "ashmem.h"
+#include <cutils/ashmem.h>
 
 #include "gralloc_priv.h"
 #include "pmemalloc.h"

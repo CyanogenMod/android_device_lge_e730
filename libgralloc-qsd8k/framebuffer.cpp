@@ -19,12 +19,12 @@
 
 #include <dlfcn.h>
 
-#include "ashmem.h"
+#include <cutils/ashmem.h>
 #include <cutils/log.h>
 #include <cutils/properties.h>
 
 #include <hardware/hardware.h>
-#include "gralloc.h"
+#include <hardware/gralloc.h>
 
 #include <fcntl.h>
 #include <errno.h>

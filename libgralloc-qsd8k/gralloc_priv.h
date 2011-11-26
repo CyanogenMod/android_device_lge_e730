@@ -21,7 +21,7 @@
 #include <stdint.h>
 #include <limits.h>
 #include <sys/cdefs.h>
-#include "gralloc.h"
+#include <hardware/gralloc.h>
 #include <pthread.h>
 #include <errno.h>
 #include <unistd.h>
