@@ -171,7 +171,7 @@ service bugreport /system/bin/bugmailer.sh -v
     oneshot
     keycodes 114 115 116
 
-service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --no2bytes \
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --no2bytes \
     --baudrate 3000000 --patchram /system/vendor/firmware/bcm4330.hcd /dev/ttyHS0
     class main
     user bluetooth
