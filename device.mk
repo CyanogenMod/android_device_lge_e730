@@ -132,7 +132,8 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/keylayout/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
     device/lge/e730/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/lge/e730/keylayout/touch_keypad.kl:system/usr/keylayout/touch_keypad.kl \
-    device/lge/e730/keylayout/victor-keypad.kl:system/usr/keylayout/victor-keypad.kl
+    device/lge/e730/keylayout/victor-keypad.kl:system/usr/keylayout/victor-keypad.kl \
+    device/lge/e730/keylayout/testmode_input.kl:system/usr/keylayout/testmode_input.kl
 
 # Firmware
 PRODUCT_COPY_FILES += \
