@@ -48,14 +48,20 @@ TARGET_SPECIFIC_HEADER_PATH := device/lge/e730/include
 TARGET_BOOTLOADER_BOARD_NAME := victor
 
 # Wifi related defines
-WPA_SUPPLICANT_VERSION          := VER_0_6_X
-BOARD_WPA_SUPPLICANT_DRIVER     := WEXT
-BOARD_WLAN_DEVICE               := bcm4330
-#WIFI_DRIVER_FW_STA_PATH         := "/vendor/firmware/fw_bcmdhd.bin"
-#WIFI_DRIVER_FW_AP_PATH          := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_MODULE_NAME         := "wireless"
-WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG          := "firmware_path=/vendor/firmware/fw_bcmdhd.bin nvram_path=/vendor/firmware/nvram.txt config_path=/data/misc/wifi/config iface_name=wlan"
+BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_HOSTAPD_DRIVER             := WEXT
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE                := bcmdhd
+WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
+WIFI_DRIVER_FW_PATH_P2P          := "/vendor/firmware/fw_bcmdhd_p2p.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
+WIFI_DRIVER_MODULE_NAME          := "wireless"
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG           := "firmware_path=/vendor/firmware/fw_bcmdhd.bin nvram_path=/vendor/firmware/nvram.txt config_path=/data/misc/wifi/config iface_name=wlan"
+BOARD_WLAN_DEVICE_REV            := bcm4330_b1
+WIFI_BAND                        := 802_11_ABG
 
 #BOARD_USES_HGL := true
 #BOARD_USES_OVERLAY := true
