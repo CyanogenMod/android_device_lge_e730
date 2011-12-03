@@ -1,5 +1,7 @@
 $(call inherit-product, device/lge/e730/full_e730.mk)
 
+PRODUCT_RELEASE_NAME := E730
+
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
