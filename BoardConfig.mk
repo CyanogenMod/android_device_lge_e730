@@ -23,7 +23,7 @@
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
 -include vendor/lge/e730/BoardConfigVendor.mk
@@ -63,13 +63,22 @@ WIFI_DRIVER_MODULE_ARG           := "firmware_path=/vendor/firmware/fw_bcmdhd.bi
 BOARD_WLAN_DEVICE_REV            := bcm4330_b1
 WIFI_BAND                        := 802_11_ABG
 
-#BOARD_USES_HGL := true
-#BOARD_USES_OVERLAY := true
-#USE_OPENGL_RENDERER := true
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USE_QCOM_PMEM := true
+BOARD_USES_QCOM_LIBS := true
 
-BOARD_USES_GENERIC_AUDIO := false
+#USE_OPENGL_RENDERER := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_SF_BYPASS := false
+#TARGET_HAVE_BYPASS := true
+#TARGET_USES_OVERLAY := true
+TARGET_HAVE_HDMI_OUT := true
+TARGET_GRALLOC_USES_ASHMEM := false
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
+
+BOARD_PREBUILT_LIBAUDIO := false
 BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
-BOARD_USES_QCOM_RESETALL := true
+BOARD_USES_QCOM_AUDIO_RESETALL := true
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -79,15 +88,12 @@ BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 BOARD_EGL_CFG := device/lge/e730/egl.cfg
 
-BOARD_USES_QCOM_LIBS := true
-#BOARD_USES_QCOM_LIBRPC := true
+BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_GPS := true
-BOARD_USE_QCOM_PMEM := true
-BOARD_USES_QCOM_HARDWARE := true
 
-#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := victor
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := victor
 # AMSS version to use for GPS
-#BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 #BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
 #BOARD_CAMERA_USE_GETBUFFERINFO := true

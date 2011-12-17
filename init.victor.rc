@@ -1,11 +1,5 @@
 import init.victor.usb.rc
 
-#on boot-pause
-on early-boot
-    # chargemode
-    #start adbd
-    exec /sbin/chargerlogo
-
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
     mkdir /data/radio 0770 radio radio
