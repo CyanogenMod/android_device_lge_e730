@@ -82,8 +82,8 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audio_policy.victor \
-    audio.primary.victor \
+    audio_policy.msm7x30 \
+    audio.primary.msm7x30 \
     libaudioutils
 
 # Media
