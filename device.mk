@@ -86,11 +86,6 @@ PRODUCT_PACKAGES += \
     audio.primary.victor \
     libaudioutils
 
-# DSP
-#PRODUCT_PACKAGES += \
-#    DSPManager \
-#    libcyanogen-dsp
-
 # Media
 PRODUCT_PACKAGES += \
     copybit.msm7x30 \
@@ -101,11 +96,6 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libQcomUI \
     libtilerenderer
-
-# SU
-PRODUCT_PACKAGES += \
-    su \
-    Superuser
 
 # Sensors, GPS, Misc
 PRODUCT_PACKAGES += \
