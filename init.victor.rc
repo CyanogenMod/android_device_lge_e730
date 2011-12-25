@@ -1,15 +1,11 @@
 import init.victor.usb.rc
 
-on boot
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
-    mkdir /data/radio 0770 radio radio
-
-on init
+on early-init
     export EXTERNAL_STORAGE /mnt/sdcard
     mkdir /mnt/sdcard 0000 system system
     symlink /mnt/sdcard /sdcard
 
-on fs
+on early-fs
     mkdir /system
     mkdir /data 0771 system system
     mkdir /cache 0770 system cache
@@ -20,24 +16,18 @@ on fs
     mount ext4 /dev/block/mmcblk0p18 /cache wait noatime nosuid nodev barrier=1
     mount ext4 /dev/block/mmcblk0p20 /lgdrm wait noatime nosuid nodev barrier=1
 
+    mkdir /data/radio 0770 radio radio
     mkdir /data/misc 1771 system misc
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
-    mkdir /data/d 0777 system system
-    mount debugfs /data/d /data/d
     mkdir /data/amit 0771
     chown system system /data/amit
     mkdir /data/lgdrm 0770 system audio
     mkdir /data/wmdrm 0770 system audio
 
     chmod 0664 /sys/module/pm/parameters/idle_sleep_mode
-
-    # for disabling IPv6 over mobile network.
-    #write /proc/sys/net/ipv6/conf/rmnet0/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet1/disable_ipv6 1
-    #write /proc/sys/net/ipv6/conf/rmnet2/disable_ipv6 1
 
     # Disable cursor blink of fb console
     write /sys/devices/virtual/graphics/fbcon/cursor_blink 0
@@ -115,6 +105,9 @@ on fs
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 90
     write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 75000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
+
+on boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
     class main
