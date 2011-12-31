@@ -67,8 +67,8 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/e730/overlay
 
 # gsm config xml file
 PRODUCT_COPY_FILES += \
-    device/lge/e730/spn-conf.xml:system/etc/spn-conf.xml \
-    device/lge/e730/voicemail-conf.xml:system/etc/voicemail-conf.xml
+    device/lge/e730/configs/spn-conf.xml:system/etc/spn-conf.xml \
+    device/lge/e730/configs/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
 PRODUCT_PACKAGES += \
     lights.victor \
@@ -99,12 +99,16 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/keylayout/touch_keypad.kl:system/usr/keylayout/touch_keypad.kl \
     device/lge/e730/keylayout/victor-keypad.kl:system/usr/keylayout/victor-keypad.kl
 
-# Firmware
+# BT/WIfi
 PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/wl/nvram.txt:system/etc/wl/nvram.txt \
     device/lge/e730/firmware/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     device/lge/e730/firmware/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
     device/lge/e730/firmware/BCM4330B1_002.001.003.0243.0305.hcd:system/etc/firmware/BCM4330B1_002.001.003.0243.0305.hcd \
+    device/lge/e730/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
+
+# Firmware
+PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
     device/lge/e730/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
     device/lge/e730/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
@@ -134,11 +138,11 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/misc/chargerimages/black_bg.rle:/root/chargerimages/black_bg.rle
 
 PRODUCT_COPY_FILES += \
-    device/lge/e730/vold.fstab:system/etc/vold.fstab
+    device/lge/e730/configs/vold.fstab:system/etc/vold.fstab
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/lge/e730/media_profiles.xml:system/etc/media_profiles.xml
+    device/lge/e730/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 # Kernel modules
 #PRODUCT_COPY_FILES += \
@@ -157,12 +161,8 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full_base.mk)
 
-# media profiles and capabilities spec
-$(call inherit-product, device/lge/e730/media_a1026.mk)
-
 $(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
 
-PRODUCT_NAME := lge_e730
+PRODUCT_NAME := e730
 PRODUCT_DEVICE := e730
-PRODUCT_MODEL := E730
-PRODUCT_MANUFACTURER := LGE
+PRODUCT_MODEL := LG Optimus Sol

@@ -38,6 +38,9 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
 TARGET_SPECIFIC_HEADER_PATH := device/lge/e730/include
 
 TARGET_BOOTLOADER_BOARD_NAME := victor
@@ -51,18 +54,22 @@ WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG          := "firmware_path=/etc/wl/rtecdc.bin nvram_path=/etc/wl/nvram.txt config_path=/data/misc/wifi/config"
 WPA_SUPPLICANT_VERSION          := VER_0_6_X
 WIFI_DRIVER_HAS_LGE_SOFTAP      := true
+BOARD_WEXT_NO_COMBO_SCAN        := true
+BOARD_WPA_SUPPLICANT_DRIVER     := WEXT
 
 BOARD_USES_GENERIC_AUDIO := false
-BOARD_USES_QCOM_RESETALL := true
+BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
 BOARD_USES_QCOM_RESETALL := true
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-BOARD_HAVE_FM_RADIO := true
-BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
+## This is failing hard on 4330. hcitool hangs
+BOARD_FM_DEVICE := bcm4329
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
-BOARD_EGL_CFG := device/lge/e730/egl.cfg
+BOARD_EGL_CFG := device/lge/e730/configs/egl.cfg
 
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
@@ -75,9 +82,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := victor
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 BOARD_OVERLAY_FORMAT_YCbCr_420_SP := true
+TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
 BOARD_CAMERA_USE_GETBUFFERINFO := true
-#BOARD_USE_CAF_LIBCAMERA := true
-#BOARD_OVERLAY_MINIFICATION_LIMIT := 2
+BOARD_USE_CAF_LIBCAMERA := true
 
 BOARD_USES_SECURECLOCK := true
 
