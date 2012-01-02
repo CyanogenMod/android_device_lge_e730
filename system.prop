@@ -4,11 +4,11 @@
 ro.sf.lcd_density=240
 
 # qcom display
-debug.sf.hw = 1
-debug.composition.type = c2d
-#debug.enabletr = true
-debug.qctwa.statusbar = 1
-debug.qctwa.preservebuf = 1
+debug.sf.hw=1
+debug.composition.type=c2d
+#debug.enabletr=true
+debug.qctwa.statusbar=1
+debug.qctwa.preservebuf=1
 
 # cm qcom build lub
 com.qc.hardware=true
@@ -21,6 +21,16 @@ ro.telephony.ril.v3=skipbrokendatacall,signalstrength,datacall
 ro.telephony.ril_class=lgeqcom
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+ril.subscription.types=NV,RUIM
 
 # Default network type.
 # 0 => WCDMA preferred.
@@ -32,46 +42,12 @@ ro.ril.def.agps.mode=2
 # Define TCP buffer sizes
 net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208
 
-# system props for the data modules
-ro.use_data_netmgrd=true
-ro.dev.dmm=1
-dev.dmm.dpd.trigger_delay=30
-ro.config.ehrpd=true
-ro.emmc.sdcard.partition=16
-ro.lge.touchkey=BACK|SEARCH|HOME|MENU
-ro.lge.vt.enable=1
-
 wifi.features=p2p
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=30
 
-mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number
 ro.opengles.version=131072
-
-# Additional LG PROPERTIES
-user.feature.flex=false
-user.feature.lgdrm=false
-user.feature.lgresource=false
-user.feature.lgpoweroff=false
-user.feature.preload_so=false
-user.feature.preload_del=false
-user.feature.lock_sui=false
-user.feature.sui=false
-user.feature.wapservice=false
-ro.lge.vibrator_amp=120
-
-#persist.cne.UseCne=vendor
-persist.cne.UseCne=none
-persist.cne.bat.range.low.med=30
-persist.cne.bat.range.med.high=60
-persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml
-persist.cne.loc.policy.user=/system/etc/UserPolicy.xml
-persist.cne.bwbased.rat.sel=false
-persist.cne.snsr.based.rat.mgt=false
-persist.cne.bat.based.rat.mgt=false
-persist.cne.rat.acq.time.out=30000
-persist.cne.rat.acq.retry.tout=0
-persist.rild.nitz_plmn=persist.rild.nitz_long_ons_0=persist.rild.nitz_long_ons_1=persist.rild.nitz_long_ons_2=persist.rild.nitz_long_ons_3=persist.rild.nitz_short_ons_0=persist.rild.nitz_short_ons_1=persist.rild.nitz_short_ons_2=persist.rild.nitz_short_ons_3=lpa.decode=true

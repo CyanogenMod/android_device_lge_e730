@@ -76,8 +76,8 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/e730/overlay
 
 # gsm config xml file
 PRODUCT_COPY_FILES += \
-    device/lge/e730/spn-conf.xml:system/etc/spn-conf.xml \
-    device/lge/e730/voicemail-conf.xml:system/etc/voicemail-conf.xml
+    device/lge/e730/configs/spn-conf.xml:system/etc/spn-conf.xml \
+    device/lge/e730/configs/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -146,12 +146,16 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/keylayout/victor-keypad.kl:system/usr/keylayout/victor-keypad.kl \
     device/lge/e730/keylayout/testmode_input.kl:system/usr/keylayout/testmode_input.kl
 
-# Firmware
+# BT/Wifi
 PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/nvram.txt:system/vendor/firmware/nvram.txt \
     device/lge/e730/firmware/rtecdc-apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
     device/lge/e730/firmware/rtecdc.bin:system/vendor/firmware/fw_bcmdhd.bin \
     device/lge/e730/firmware/BCM4330B1_002.001.003.0243.0305.hcd:system/vendor/firmware/bcm4330.hcd \
+    device/lge/e730/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
+
+# Firmware
+PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
     device/lge/e730/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
     device/lge/e730/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
@@ -185,10 +189,10 @@ PRODUCT_COPY_FILES += \
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/lge/e730/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/lge/e730/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-    device/lge/e730/vold.fstab:system/etc/vold.fstab
+    device/lge/e730/configs/vold.fstab:system/etc/vold.fstab
 
 # Kernel modules
 #PRODUCT_COPY_FILES += \
