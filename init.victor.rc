@@ -1,8 +1,6 @@
-#on boot-pause
-on early-boot
-    # chargemode
-    #start adbd
-    exec /sbin/chargerlogo
+on boot-pause
+    insmod /system/lib/modules/fbconsole.ko
+    exec sbin/chargerlogo
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug

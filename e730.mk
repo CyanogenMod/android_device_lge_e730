@@ -119,25 +119,27 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/lge/e730/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
-# The splashscreen and Offmode charging
+# Offmode charging
 PRODUCT_COPY_FILES += \
-    device/lge/e730/recovery/rmt_storage/rmt_storage:/root/sbin/rmt_storage \
-    device/lge/e730/misc/chargerlogo:/root/sbin/chargerlogo \
-    device/lge/e730/misc/wallpaper:/root/sbin/wallpaper \
+    device/lge/e730/prebuilt/02removefbcon:system/etc/init.d/02removefbcon \
+    device/lge/e730/prebuilt/fbconsole.ko:system/lib/modules/fbconsole.ko \
+    device/lge/e730/misc/chargerlogo:root/sbin/chargerlogo \
+    device/lge/e730/misc/wallpaper:root/sbin/wallpaper \
     device/lge/e730/misc/initlogo.rle:root/initlogo.rle \
-    device/lge/e730/misc/chargerimages/battery_bg.rle:/root/chargerimages/battery_bg.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_01.rle:/root/chargerimages/battery_charging_01.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_02.rle:/root/chargerimages/battery_charging_02.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_03.rle:/root/chargerimages/battery_charging_03.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_04.rle:/root/chargerimages/battery_charging_04.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_05.rle:/root/chargerimages/battery_charging_05.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_06.rle:/root/chargerimages/battery_charging_06.rle \
-    device/lge/e730/misc/chargerimages/battery_charging_warning.rle:/root/chargerimages/battery_charging_warning.rle \
-    device/lge/e730/misc/chargerimages/battery_wait_ani_01.rle:/root/chargerimages/battery_wait_ani_01.rle \
-    device/lge/e730/misc/chargerimages/battery_wait_ani_02.rle:/root/chargerimages/battery_wait_ani_02.rle \
-    device/lge/e730/misc/chargerimages/black_bg.rle:/root/chargerimages/black_bg.rle
+    device/lge/e730/misc/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
+    device/lge/e730/misc/chargerimages/battery_charging_warning.rle:root/chargerimages/battery_charging_warning.rle \
+    device/lge/e730/misc/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
+    device/lge/e730/misc/chargerimages/battery_wait_ani_02.rle:root/chargerimages/battery_wait_ani_02.rle \
+    device/lge/e730/misc/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle
 
 PRODUCT_COPY_FILES += \
+    device/lge/e730/recovery/rmt_storage/rmt_storage:root/sbin/rmt_storage \
     device/lge/e730/configs/vold.fstab:system/etc/vold.fstab
 
 # media config xml file
