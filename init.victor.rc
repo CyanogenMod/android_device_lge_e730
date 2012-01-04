@@ -1,5 +1,7 @@
 on boot-pause
     insmod /system/lib/modules/fbconsole.ko
+    start rmt_storage
+    start adbd
     exec sbin/chargerlogo
 
 on boot
@@ -138,3 +140,6 @@ service ami304d /system/bin/ami304d
     group system
 
 service netmgrd /system/bin/netmgrd
+
+service adbd /sbin/adbd
+    disabled
