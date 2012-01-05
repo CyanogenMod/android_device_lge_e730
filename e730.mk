@@ -101,6 +101,7 @@ PRODUCT_COPY_FILES += \
 
 # BT/WIfi
 PRODUCT_COPY_FILES += \
+    device/lge/e730/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/lge/e730/firmware/wl/nvram.txt:system/etc/wl/nvram.txt \
     device/lge/e730/firmware/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \
     device/lge/e730/firmware/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \
