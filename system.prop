@@ -18,7 +18,7 @@ com.qc.hdmi_out=false
 ro.gsm.2nd_data_retry_config=max_retries=3, 2000, 2000, 2000
 
 ro.telephony.ril.v3=skipbrokendatacall,signalstrength,datacall
-ro.telephony.ril_class=lgeqcom
+ro.telephony.ril_class=LGEQualcommRIL
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
