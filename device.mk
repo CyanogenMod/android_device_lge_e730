@@ -86,7 +86,7 @@ PRODUCT_PACKAGES += \
     audio.primary.msm7x30 \
     libaudioutils
 
-# Media
+# Display
 PRODUCT_PACKAGES += \
     copybit.msm7x30 \
     gralloc.msm7x30 \
@@ -96,6 +96,12 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libQcomUI \
     libtilerenderer
+
+# Media
+PRODUCT_PACKAGES += \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVenc
 
 # Sensors, GPS, Misc
 PRODUCT_PACKAGES += \

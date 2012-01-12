@@ -20,8 +20,6 @@ DEVICE=e730
 MANUFACTURER=lge
 
 mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /sbin/chargerlogo ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /sbin/wallpaper ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/ami304d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/rmt_storage ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/egl/eglsubAndroid.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
@@ -102,8 +100,6 @@ PRODUCT_COPY_FILES := \\
 
 # All the blobs necessary for e730
 PRODUCT_COPY_FILES += \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/chargerlogo:sbin/chargerlogo \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/wallpaper:sbin/wallpaper \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/ami304d:system/bin/ami304d \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/rmt_storage:system/bin/rmt_storage \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \\
@@ -160,8 +156,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libwms.so:system/lib/libwms.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libwmsts.so:system/lib/libwmsts.so
-
-
 EOF
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/Android.mk
