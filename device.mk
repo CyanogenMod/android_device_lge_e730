@@ -151,7 +151,7 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/firmware/nvram.txt:system/vendor/firmware/nvram.txt \
     device/lge/e730/firmware/rtecdc-apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
     device/lge/e730/firmware/rtecdc.bin:system/vendor/firmware/fw_bcmdhd.bin \
-    device/lge/e730/firmware/BCM4330B1_002.001.003.0243.0305.hcd:system/vendor/firmware/bcm4330.hcd \
+    device/lge/e730/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd \
     device/lge/e730/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
 
 # Firmware
