@@ -22,6 +22,7 @@ PRODUCT_COPY_FILES += device/common/gps/gps.conf_EU:system/etc/gps.conf
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 PRODUCT_COPY_FILES += \
     device/lge/e730/init.victor.rc:root/init.victor.rc \
+    device/lge/e730/init.victor.rc:root/init.e739.rc \
     device/lge/e730/ueventd.rc:root/ueventd.rc
 
 PRODUCT_COPY_FILES += \
