@@ -14,8 +14,7 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko \
-    device/lge/e730/prebuilt/fbconsole.ko:system/lib/modules/fbconsole.ko
+    device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko
 
 PRODUCT_NAME := e730
 PRODUCT_DEVICE := e730
