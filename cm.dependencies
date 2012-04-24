@@ -1,0 +1,7 @@
+[
+ {
+   "repository": "lge-kernel-msm7x30",
+   "target_path": "kernel/lge/e730",
+   "branch": "android-msm-2.6.35-ics"
+ }
+]

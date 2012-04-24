@@ -56,7 +56,7 @@ $(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.camera=victor \
+    ro.product.camera=msm7630 \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
     ro.com.google.gmsversion=2.3_r6 \
@@ -99,6 +99,7 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libstagefrighthw \
     libOmxCore \
     libOmxVdec \
     libOmxVenc
@@ -154,26 +155,7 @@ PRODUCT_COPY_FILES += \
 
 # BT/Wifi
 PRODUCT_COPY_FILES += \
-    device/lge/e730/firmware/nvram.txt:system/vendor/firmware/nvram.txt \
-    device/lge/e730/firmware/rtecdc-apsta.bin:system/vendor/firmware/fw_bcmdhd_apsta.bin \
-    device/lge/e730/firmware/rtecdc.bin:system/vendor/firmware/fw_bcmdhd.bin \
-    device/lge/e730/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd \
     device/lge/e730/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
-
-# Firmware
-PRODUCT_COPY_FILES += \
-    device/lge/e730/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
-    device/lge/e730/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
-    device/lge/e730/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
-    device/lge/e730/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
-    device/lge/e730/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
-    device/lge/e730/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
-    device/lge/e730/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
-    device/lge/e730/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/lge/e730/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-    device/lge/e730/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    device/lge/e730/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
-
 
 # The splashscreen and Offmode charging
 PRODUCT_COPY_FILES += \
@@ -193,8 +175,9 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/misc/chargerimages/battery_wait_ani_02.rle:/root/chargerimages/battery_wait_ani_02.rle \
     device/lge/e730/misc/chargerimages/black_bg.rle:/root/chargerimages/black_bg.rle
 
-# media config xml file
+# config files
 PRODUCT_COPY_FILES += \
+    device/lge/e730/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/lge/e730/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
@@ -202,15 +185,6 @@ PRODUCT_COPY_FILES += \
 
 # Kernel modules
 #PRODUCT_COPY_FILES += \
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/lge/e730/prebuilt/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
     device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko

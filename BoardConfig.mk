@@ -46,32 +46,28 @@ TARGET_SPECIFIC_HEADER_PATH := device/lge/e730/include
 TARGET_BOOTLOADER_BOARD_NAME := victor
 
 # Wifi related defines
-BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER             := WEXT
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE                := bcmdhd
-WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_P2P          := "/vendor/firmware/fw_bcmdhd_p2p.bin"
-WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
-WIFI_DRIVER_MODULE_NAME          := "wireless"
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG           := "firmware_path=/vendor/firmware/fw_bcmdhd.bin nvram_path=/vendor/firmware/nvram.txt config_path=/data/misc/wifi/config iface_name=wlan"
-BOARD_WLAN_DEVICE_REV            := bcm4330_b1
-WIFI_BAND                        := 802_11_ABG
+BOARD_WLAN_DEVICE := bcm4330
+WIFI_DRIVER_FW_PATH_STA         := "/system/etc/firmware/rtecdc.bin"
+WIFI_DRIVER_FW_PATH_AP          := "/system/etc/firmware/rtecdc-apsta.bin"
+WIFI_DRIVER_MODULE_NAME         := "wireless"
+WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG          := "firmware_path=/etc/firmware/rtecdc.bin nvram_path=/etc/wl/nvram.txt config_path=/data/misc/wifi/config"
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_HAS_LGE_SOFTAP      := true
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USE_QCOM_PMEM := true
 BOARD_USES_QCOM_LIBS := true
 
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE -DQCOM_ROTATOR_KERNEL_FORMATS
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_SF_BYPASS := false
 TARGET_HAVE_BYPASS := false
 TARGET_USES_OVERLAY := true
-TARGET_QCOM_HDMI_OUT := true
+TARGET_QCOM_HDMI_OUT := false
 TARGET_GRALLOC_USES_ASHMEM := false
 TARGET_USES_GENLOCK := true
 
@@ -125,8 +121,10 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1232072704
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_FLASH_BLOCK_SIZE := 262144
 
+# Try to build the kernel
+TARGET_KERNEL_CONFIG := cyanogen_victor_defconfig
+# Keep this as a fallback
 TARGET_PREBUILT_KERNEL := device/lge/e730/prebuilt/kernel
-TARGET_PREBUILT_RECOVERY_KERNEL := $(TARGET_PREBUILT_KERNEL)
 
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true

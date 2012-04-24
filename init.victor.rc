@@ -166,3 +166,7 @@ service ami304d /system/bin/ami304d
 
 service netmgrd /system/bin/netmgrd
     class main
+
+service chargerlogo /sbin/chargerlogo
+    class charger
+    user root

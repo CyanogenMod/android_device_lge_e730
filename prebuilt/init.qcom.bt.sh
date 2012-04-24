@@ -39,8 +39,8 @@ kill_hciattach ()
   # this shell doesn't exit now -- wait returns for normal exit
 }
 
-/system/bin/brcm_patchram_plus -d --patchram system/vendor/firmware/bcm4330.hcd /dev/ttyHS0
-/system/bin/brcm_patchram_plus -d -baudrate 3000000 /dev/ttyHS0
+/system/bin/brcm_patchram_plus --patchram system/etc/firmware/bcm4330.hcd /dev/ttyHS0
+/system/bin/brcm_patchram_plus -baudrate 3000000 /dev/ttyHS0
 exit_code_hci_qcomm_download=$?
 
 case $exit_code_hci_qcomm_download in
