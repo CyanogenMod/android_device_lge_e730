@@ -40,7 +40,6 @@ ro.ril.def.agps.mode=2
 # Define TCP buffer sizes
 net.tcp.buffersize.hsdpa=4094,87380,393216,4096,16384,110208
 
-wifi.features=p2p
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=30
 

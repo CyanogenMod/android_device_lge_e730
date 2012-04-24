@@ -151,11 +151,11 @@ service hciattach /system/bin/sh /system/bin/init.qcom.bt.sh
     disabled
 
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p13 /dev/block/mmcblk0p14 /dev/block/mmcblk0p19
-    class main
+    class core
     user root
 
 service qmuxd /system/bin/qmuxd 
-    class main
+    class core
     user radio
     group system radio inet
 
@@ -165,7 +165,7 @@ service ami304d /system/bin/ami304d
     group system
 
 service netmgrd /system/bin/netmgrd
-    class main
+    class core
 
 service chargerlogo /sbin/chargerlogo
     class charger
