@@ -26,7 +26,7 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_COPY_FILES += \
     device/lge/e730/init.victor.rc:root/init.victor.rc \
     device/lge/e730/init.victor.usb.rc:root/init.victor.usb.rc \
-    device/lge/e730/ueventd.victor.rc:root/ueventd.victor.rc
+    device/lge/e730/ueventd.rc:root/ueventd.rc
 
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -68,9 +68,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=20
 
-# Set default USB interface for first boot
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh
+# Set default USB interface
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp
 
 DEVICE_PACKAGE_OVERLAYS += device/lge/e730/overlay
 
