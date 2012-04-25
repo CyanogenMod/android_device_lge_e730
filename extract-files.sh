@@ -19,7 +19,7 @@
 DEVICE=e730
 MANUFACTURER=lge
 
-mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+mkdir -p ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
 adb pull /system/bin/ami304d ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/rmt_storage ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/egl/eglsubAndroid.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
@@ -35,9 +35,6 @@ adb pull /system/lib/libaudioalsa.so ../../../vendor/$MANUFACTURER/$DEVICE/propr
 adb pull /system/lib/libgemini.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libmmipl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libmmjpeg.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/libabl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/libabloem.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
-adb pull /system/lib/libmm-abl.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/hw/sensors.default.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/netmgrd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/bin/qmuxd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
@@ -77,6 +74,27 @@ adb pull /system/lib/libril-qcril-hook-oem.so ../../../vendor/$MANUFACTURER/$DEV
 adb pull /system/lib/libwms.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libwmsts.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 adb pull /system/lib/libv8.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/hw/camera.victor.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/libchromatix_mt9p017_preview.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/libchromatix_mt9p017_video.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/lib/liboemcamera.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /sbin/chargerlogo ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /sbin/wallpaper ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
+adb pull /system/etc/firmware/vidc_720p_command_control.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/vidc_720p_h263_dec_mc.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/vidc_720p_h264_dec_mc.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/vidc_720p_h264_enc_mc.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/vidc_720p_mp4_dec_mc.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/vidc_720p_mp4_enc_mc.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/vidc_720p_vc1_dec_mc.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/leia_pfp_470.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/leia_pm4_470.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/yamato_pfp.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/yamato_pm4.fw ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/wl/nvram.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/rtecdc-apsta.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/etc/firmware/rtecdc.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/vendor/firmware/bcm4330.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
@@ -97,7 +115,7 @@ adb pull /system/lib/libv8.so ../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudioalsa.so:obj/lib/libaudioalsa.so \
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudioalsa.so:obj/lib/libaudioalsa.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libv8.so:obj/lib/libv8.so
 
 # All the blobs necessary for e730
@@ -117,9 +135,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libgemini.so:system/lib/libgemini.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libmmipl.so:system/lib/libmmipl.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libmmjpeg.so:system/lib/libmmjpeg.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libabl.so:system/lib/libabl.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libabloem.so:system/lib/libabloem.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libmm-abl.so:system/lib/libmm-abl.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/sensors.default.so:system/lib/hw/sensors.default.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/netmgrd:system/bin/netmgrd \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/qmuxd:system/bin/qmuxd \\
@@ -158,7 +173,28 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libwms.so:system/lib/libwms.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libwmsts.so:system/lib/libwmsts.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libv8.so:system/lib/libv8.so
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libv8.so:system/lib/libv8.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/camera.victor.so:system/lib/hw/camera.victor.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libchromatix_mt9p017_preview.so:system/lib/libchromatix_mt9p017_preview.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libchromatix_mt9p017_video.so:system/lib/libchromatix_mt9p017_video.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/liboemcamera.so:system/lib/liboemcamera.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/chargerlogo:/sbin/chargerlogo \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/wallpaper:/sbin/wallpaper \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/nvram.txt:system/etc/wl/nvram.txt \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/rtecdc-apsta.bin:system/etc/firmware/rtecdc-apsta.bin \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/rtecdc.bin:system/etc/firmware/rtecdc.bin \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd
 EOF
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/Android.mk

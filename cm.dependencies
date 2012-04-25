@@ -1,7 +1,11 @@
 [
  {
+   "repository": "android_device_lge_victor-common",
+   "target_path": "device/lge/victor-common"
+ },
+ {
    "repository": "lge-kernel-msm7x30",
-   "target_path": "kernel/lge/e730",
+   "target_path": "kernel/lge/msm7x30",
    "branch": "android-msm-2.6.35-ics"
  }
 ]
