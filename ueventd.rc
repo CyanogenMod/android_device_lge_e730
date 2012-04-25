@@ -35,6 +35,8 @@
 # the DIAG device node is world writable/readable.
 /dev/diag                 0666   root       root
 
+/dev/rfkill               0660   wifi       wifi
+
 # these should not be world writable
 /dev/diag_arm9            0660   radio      radio
 /dev/android_adb          0660   adb        adb
