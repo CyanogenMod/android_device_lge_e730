@@ -40,7 +40,7 @@ kill_hciattach ()
 }
 
 /system/bin/brcm_patchram_plus --patchram system/etc/firmware/bcm4330.hcd /dev/ttyHS0
-/system/bin/brcm_patchram_plus -baudrate 3000000 /dev/ttyHS0
+/system/bin/brcm_patchram_plus --baudrate 3000000 /dev/ttyHS0
 exit_code_hci_qcomm_download=$?
 
 case $exit_code_hci_qcomm_download in
