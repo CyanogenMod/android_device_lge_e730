@@ -52,7 +52,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 ## (2) Also get non-open-source GSM-specific aspects if available
-$(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/e730/e730-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -190,8 +190,6 @@ PRODUCT_COPY_FILES += \
     device/lge/e730/prebuilt/wireless.ko:system/lib/modules/wireless.ko
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
-
-$(call inherit-product-if-exists, vendor/lge/e730/device-vendor.mk)
 
 #BOARD_WLAN_DEVICE_REV := bcm4330_b1
 #WIFI_BAND             := 802_11_ABG
