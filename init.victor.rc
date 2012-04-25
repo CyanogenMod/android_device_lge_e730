@@ -101,6 +101,11 @@ on early-fs
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
+on property:dev.bootcomplete=1
+    chown root root /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0644 /sys/module/lowmemorykiller/parameters/minfree
+    write /sys/module/lowmemorykiller/parameters/minfree 3072,4096,6144,7168,10240,11264
+
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
