@@ -94,7 +94,7 @@ adb pull /system/etc/firmware/yamato_pm4.fw ../../../vendor/$MANUFACTURER/$DEVIC
 adb pull /system/etc/wl/nvram.txt ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
 adb pull /system/etc/firmware/rtecdc-apsta.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
 adb pull /system/etc/firmware/rtecdc.bin ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
-adb pull /system/vendor/firmware/bcm4330.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
+adb pull /system/bin/BCM4330B1_002.001.003.0243.0305.hcd ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/firmware
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/device-vendor-blobs.mk
 # Copyright (C) 2010 The Android Open Source Project
@@ -194,7 +194,7 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/nvram.txt:system/etc/wl/nvram.txt \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/rtecdc-apsta.bin:system/etc/firmware/rtecdc-apsta.bin \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/rtecdc.bin:system/etc/firmware/rtecdc.bin \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/bcm4330.hcd:system/vendor/firmware/bcm4330.hcd
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/firmware/BCM4330B1_002.001.003.0243.0305.hcd:system/etc/firmware/BCM4330B1_002.001.003.0243.0305.hcd
 EOF
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__MANUFACTURER__/$MANUFACTURER/g > ../../../vendor/$MANUFACTURER/$DEVICE/proprietary/Android.mk
