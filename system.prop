@@ -5,8 +5,6 @@ ro.sf.lcd_density=240
 
 # qcom display
 debug.sf.hw=1
-debug.composition.type=dyn
-debug.enabletr=false
 
 # cm qcom build lub
 com.qc.hardware=true
