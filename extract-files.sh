@@ -161,8 +161,10 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libnetmgr.so:system/lib/libnetmgr.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libnfc.so:system/lib/libnfc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libnv.so:system/lib/libnv.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libnv.so:obj/lib/libnv.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/liboem_rapi.so:system/lib/liboem_rapi.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/liboncrpc.so:system/lib/liboncrpc.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/liboncrpc.so:obj/lib/liboncrpc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpbmlib.so:system/lib/libpbmlib.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libqmi.so:system/lib/libqmi.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libqdp.so:system/lib/libqdp.so \\
