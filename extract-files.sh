@@ -96,7 +96,9 @@ adb pull /system/lib/libwmsts.so ../../../vendor/$MANUFACTURER/$DEVICE/proprieta
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libaudioalsa.so:obj/lib/libaudioalsa.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libcamera.so:obj/lib/libcamera.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libnv.so:obj/lib/libnv.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/liboncrpc.so:obj/lib/liboncrpc.so
 
 # All the blobs necessary for lge e730
 PRODUCT_COPY_FILES += \\
